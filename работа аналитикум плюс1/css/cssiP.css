@@ -1,0 +1,265 @@
+    @media only screen
+    and (min-device-width: 744px)
+    and (max-device-width: 1133px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+
+        body {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+
+        .header-site {
+            width: 768px;
+            height: 70px;
+            padding: 0 20px;
+        }
+
+        .form-input{
+            width: 86%;
+        }
+
+        .logo img {
+            height: 35px;
+        }
+
+        .main-menu1 {
+            display: none;
+        }
+
+        .header-contacts {
+            display: none;
+        }
+
+        .burger-menu {
+            display: block;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 28px;
+            background: none;
+            border: none;
+            color: #211041;
+        }
+
+
+        .main-menu {
+            display: ruby;
+            left: -360px;
+            width: 320px;
+        }
+
+
+        .main-menu.active {
+            left: 0;
+        }
+
+        .main-menu ul {
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .main-menu li {
+            padding: 15px 0;
+            border-bottom: 1px solid #D1C6DD;
+            font-size: 16px;
+        }
+
+        .header-contacts-burger {
+            margin-top: 30px;
+        }
+
+        .header-button-burger {
+            width: 100%;
+            padding: 12px;
+        }
+
+
+
+        .welcome-block {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .welcome-text {
+            width: 100%;
+            order: 1;
+        }
+
+        .welcome-image {
+            width: 100%;
+            order: 2;
+        }
+
+        .welcome-title {
+            font-size: 42px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .welcome-description {
+            font-size: 18px;
+            margin-top: 15px;
+        }
+
+
+        .company-section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .company-header {
+            font-size: 42px;
+            margin-bottom: 30px;
+        }
+
+        .company-image {
+            position: static;
+            transform: none;
+            width: 80%;
+            margin: 30px auto 0;
+            display: block;
+        }
+
+        .company-description {
+            max-width: 100%;
+            text-align: left;
+        }
+
+
+        .maximum-section {
+            padding: 60px 20px;
+        }
+
+        .section-header {
+            font-size: 42px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .benefits-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .benefit-card {
+            height: auto;
+            padding: 25px;
+            width: 680px;
+        }
+
+
+        .tech-section {
+            padding: 60px 20px;
+        }
+
+        .tech-tabs {
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .tech-content {
+            flex-direction: column;
+        }
+
+        .tech-slider,
+        .tech-description {
+            width: 100%;
+        }
+
+        .tech-slider {
+            min-width: auto;
+            margin-bottom: 30px;
+        }
+
+
+        .qa-section {
+            padding: 60px 20px;
+        }
+
+        .accordion-title {
+            font-size: 20px;
+        }
+
+
+        .ai-section {
+            padding: 60px 20px;
+        }
+
+        .section-subheader {
+            font-size: 32px;
+        }
+
+        .swiper-slide {
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .swiper-slide img {
+            width: 80%;
+        }
+
+
+        .contacts-section {
+            padding: 60px 20px;
+        }
+
+        .contacts-container {
+            flex-direction: column;
+        }
+
+        .map-container {
+            height: 350px;
+            margin-bottom: 30px;
+        }
+
+
+        .cooperation-form {
+            padding: 60px 20px;
+        }
+
+        .form-header {
+            font-size: 36px;
+            text-align: center;
+        }
+
+        .form-description {
+            text-align: center;
+        }
+
+        .form-layout {
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .submit-btn {
+            width: 100%;
+        }
+
+
+        .footer {
+            padding: 40px 20px;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .nav,
+        .footer-feedback,
+        .NUmbErs {
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .last {
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .social-icons {
+            justify-content: center;
+        }
+        .map-container {
+            width: 730px;
+        }
+    }

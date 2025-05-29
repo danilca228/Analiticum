@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyticum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/css1.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
+    <link rel="stylesheet" href="css/cssiP.css">
+    <link rel="stylesheet" href="css/cssiPhone14.css">
+</head>
+<body>
+<style>
+
+    .fancybox__container {
+        --fancybox-bg: rgba(0, 0, 0, 0.9);
+        --fancybox-opacity: 1;
+    }
+
+    .fancybox__content {
+        padding: 0;
+        margin: 0;
+        border-radius: 0 !important;
+        max-width: 100%;
+        max-height: 100%;
+        background: #615081;
+    }
+
+    .fancybox__slide {
+        padding: 0;
+    }
+
+
+    .modal-close-btn {
+        transition: all 0.3s ease;
+    }
+
+    .modal-close-btn:hover {
+        opacity: 0.8;
+        transform: scale(1.1);
+    }
+
+    .modal-close-btn:active {
+        transform: scale(0.95);
+    }
+
+
+    @media (max-width: 768px) {
+        #consultation-modal {
+            padding: 30px 15px;
+        }
+
+        #consultation-modal h2 {
+            font-size: 24px;
+        }
+
+        #consultation-modal p {
+            font-size: 16px;
+        }
+
+        #success-modal h2 {
+            font-size: 28px;
+        }
+
+        .modal-close-btn {
+            top: 10px !important;
+            right: 10px !important;
+        }
+
+        .modal-close-btn svg {
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        #consultation-modal {
+            padding: 25px 10px;
+        }
+
+        #consultation-modal h2 {
+            font-size: 22px;
+        }
+
+        #success-modal h2 {
+            font-size: 24px;
+        }
+
+        input, textarea, button {
+            padding: 10px !important;
+            font-size: 14px !important;
+        }
+
+        .modal-close-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+</style>
+<header class="header-site">
+    <div class="logo">
+        <img src="Media/logotype.svg" alt="logo">
+    </div>
+<nav class="main-menu1">
+        <ul>
+            <li>Знакомство</li>
+            <li>Максимум</li>
+            <li>Вопрос/Ответ</li>
+            <li>Контакты</li>
+        </ul>
+</nav>
+<button class="burger-menu">☰</button>
+
+    <nav class="main-menu">
+        <ul>
+            <li>Знакомство</li>
+            <li>Максимум</li>
+            <li>Вопрос/Ответ</li>
+            <li>Контакты</li>
+        </ul>
+        <div class="header-contacts-burger">
+        <button class="header-button-burger">
+            Консультация
+        </button>
+        <div class="icons-burger">
+            <img src="Media/vk.svg" alt="VK">
+            <img src="Media/youtube.svg" alt="YouTube">
+            <img src="Media/telegram.svg" alt="Telegram">
+        </div>
+        <div class="info-burger">
+            <h3>8 (359) 393-123</h3>
+            <p>info@analyticum.pro</p>
+        </div>
+    </div>
+    </nav>
+
+    <div class="header-contacts">
+        <div class="info">
+            <h3>8 (359) 393-123</h3>
+            <p>info@analyticum.pro</p>
+        </div>
+
+        <button class="header-button">
+            Консультация
+        </button>
+
+        <div id="consultation-modal" style="display: none; width: 100%; height: 100%; background: #615081; color: white; padding: 40px; box-sizing: border-box; position: relative;">
+            <button class="modal-close-btn" style="position: absolute; top: 20px; right: 20px; background: none; border: none; cursor: pointer; z-index: 10;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 6L6 18M6 6L18 18" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+
+            <div style="max-width: 800px; margin: 0 auto; height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                <h2 style="font-size: 28px; margin-bottom: 20px; text-align: center; color: white;">ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ</h2>
+                <p style="text-align: center; margin-bottom: 30px; color: white; font-size: 18px;">Заполните форму обратной связи</p>
+
+                <form id="consultation-form" style="display: flex; flex-direction: column; gap: 20px; flex-grow: 1;">
+                    <div>
+                        <label style="display: block; margin-bottom: 8px; color: white; font-size: 16px;">Ваше имя*</label>
+                        <input type="text" required style="width: 100%; padding: 12px; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); color: white; font-size: 16px;">
+                    </div>
+
+                    <div>
+                        <label style="display: block; margin-bottom: 8px; color: white; font-size: 16px;">+7 - - *</label>
+                        <input type="tel" required style="width: 100%; padding: 12px; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); color: white; font-size: 16px;">
+                    </div>
+
+                    <div style="flex-grow: 1;">
+                        <label style="display: block; margin-bottom: 8px; color: white; font-size: 16px;">Комментарий</label>
+                        <textarea style="width: 100%; height: 150px; padding: 12px; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); color: white; font-size: 16px; resize: none;"></textarea>
+                    </div>
+
+                    <div style="font-size: 14px; margin-bottom: 25px;">
+                        <label style="display: flex; align-items: center; gap: 8px; color: white;">
+                            <input type="checkbox" required style="margin: 0; width: 18px; height: 18px; accent-color: #BD4CC8;">
+                            <span>Пользуясь сайтом или отправляя любые формы запросов, Вы соглашаетесь с условиями «Положения о конфиденциальности»</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" style="background: #BD4CC8; color: white; border: none; padding: 16px; font-size: 18px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 0 15px rgba(189, 76, 200, 0.6); margin-top: auto;">Отправить</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="success-modal" style="display: none; width: 100%; height: 100%; background: #615081; text-align: center; color: white;">
+            <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative;">
+            <button class="modal-close-btn" style="position: absolute; top: 20px; right: 20px; background: none; border: none; cursor: pointer; z-index: 10;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 6L6 18M6 6L18 18" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+
+            <h2 style="font-size: 32px; margin-bottom: 10px;">ВАША ЗАЯВКА</h2>
+            <h2 style="font-size: 32px;">ОТПРАВЛЕНА</h2>
+            </div>
+        </div>
+
+</header>
+<div class="overlay"></div>
+<section class="welcome-block">
+    <div class="welcome-text">
+        <h1 class="welcome-title">
+            ПРИВЕТСТВУЮ<br>
+            НА <b>ТЕСТОВОМ</b><br>
+            ЗАДАНИИ
+        </h1>
+        <p class="welcome-description">
+            Приглашаю тебя пройти тестовое задание<br>
+            и в дальнейшем присоединиться к нашей команде
+        </p>
+    </div>
+    <img class="welcome-image" src="Media/Cat.svg" alt="Иллюстрация">
+</section>
+
+<section class="company-section">
+    <div class="company-content">
+        <h2 class="company-header">
+            IT-КОМПАНИЯ<br>
+            С БОЛЬШИМ<br>
+            <b>СПЕКТРОМ</b> УСЛУГ
+        </h2>
+
+        <h3 class="subheader">Давай<br> знакомиться</h3>
+
+        <p class="company-description">
+            Аналитикум плюс 2016 года помогает малому и среднему бизнесу использовать все возможности цифровых технологий в решении ежедневных и стратегических задач.
+        </p>
+
+        <p class="company-description">
+            В нашей компетенции техническое сопровождение бизнеса, IT-аутсорсинг и автоматизация бизнес-процессов с помощью WEB-разработки.
+        </p>
+    </div>
+
+    <img class="company-image" src="Media/magic.svg" alt="IT-компания">
+</section>
+
+<section class="maximum-section">
+    <h2 class="section-header">ПОЛУЧАЙ <b>МАКСИМУМ,</b><br>РАБОТАЯ С НАМИ</h2>
+
+    <div class="benefits-grid">
+        <div class="benefit-card">
+            <img class="benefit-icon" src="Media/icon-clock.svg" alt="Нормированный рабочий день">
+            <h3 class="benefit-title">Нормированный<br>рабочий день</h3>
+            <p class="benefit-description">
+                Мы работаем с 9:00 до 18:00, выполняем задачи в срок,
+                а на выходных отдыхаем и набираемся сил для новых проектов.
+            </p>
+        </div>
+
+        <div class="benefit-card">
+            <img class="benefit-icon" src="Media/icon-smile.svg" alt="Дружелюбная обстановка">
+            <h3 class="benefit-title">Дружелюбная<br>обстановка</h3>
+            <p class="benefit-description">
+                Настольные игры в перерывах, совместные корпоративы с выездом
+                за город, квесты и тесты про то, кто какой хлебушек.
+            </p>
+        </div>
+
+        <div class="benefit-card">
+            <img class="benefit-icon" src="Media/icon-human.svg" alt="Активное времяпрепровождение">
+            <h3 class="benefit-title">Активное<br>времяпрепровождение</h3>
+            <p class="benefit-description">
+                Мы играем в теннис и бильярд, катаемся на плюшках,
+                ходим в горы, плаваем в озерах и готовы на любые активности.
+            </p>
+        </div>
+
+        <div class="benefit-card">
+            <img class="benefit-icon" src="Media/icon-development.svg" alt="Постоянное развитие">
+            <h3 class="benefit-title">Постоянное<br>развитие</h3>
+            <p class="benefit-description">
+                Интересные проекты и работа в команде дают прекрасные
+                возможности для развития профессиональных навыков.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="tech-section">
+    <div class="tech-tabs">
+        <button class="tech-tab active" data-tab="verstka">Верстка</button>
+        <button class="tech-tab" data-tab="js">JS/JQ</button>
+        <button class="tech-tab" data-tab="vue">Vue</button>
+        <button class="tech-tab" data-tab="docker">Doker</button>
+        <button class="tech-tab" data-tab="bitrix">Bitrix</button>
+        <button class="tech-tab" data-tab="winter">Winter</button>
+    </div>
+
+    <div class="tech-content">
+        <div class="tech-slider">
+
+            <div class="tech-slide active" data-tab="verstka">
+                <img src="Media/student-1.png" alt="Верстка">
+            </div>
+
+
+            <div class="tech-slide" data-tab="js">
+                <img src="Media/student-6.png" alt="JavaScript">
+            </div>
+
+            <div class="tech-slide " data-tab="vue">
+                <img src="Media/student-2.png" alt="Vue">
+            </div>
+
+            <div class="tech-slide " data-tab="docker">
+                <img src="Media/student-4.png" alt="docker">
+            </div>
+
+            <div class="tech-slide " data-tab="bitrix">
+                <img src="Media/student-5.png" alt="bitrix">
+            </div>
+
+            <div class="tech-slide " data-tab="winter">
+                <img src="Media/student-3.png" alt="winter">
+            </div>
+
+        </div>
+
+        <div class="tech-description">
+
+            <div class="tech-description-content active" data-tab="verstka">
+                <h1 class="tech-title">Верстка</h1>
+                <p class="tech-text">
+                    Для вёрстки мы используем стандартный HTML5. А вот стили пишем на CSS3,
+                    SASS и LESS.
+                </p>
+                <p class="tech-text">
+                    Все новые проекты на October и October2 пишем на SASS.
+                    Но есть сайты, что у нас на поддержке и они стилизованы либо LESS,
+                    либо CSS, или даже все вместе.
+                </p>
+                <p class="tech-text">
+                    Так что желательно знать препроцессоры хотя бы поверхностно, плюсом
+                    будет если умеете писать миксины, функции. Еще мы используем
+                    методологию БЭМ, но только для формирования имён блоков, элементов и
+                    модификаторов.
+                </p>
+                <p class="tech-text">
+                    В нашем коллективе есть много нюансов и договоренностей по работе с
+                    версткой. И всему этому мы сможем вас обучить!
+                </p>
+            </div>
+
+
+            <div class="tech-description-content" data-tab="js">
+                <h1 class="tech-title">JavaScript</h1>
+                <p class="tech-text">
+                    JavaScript (JS) играет важную роль в работе ИТ-компаний и является одним
+                    из основных языков программирования в современной индустрии.
+                </p>
+                <p class="tech-text">
+                    Популярный язык программирования, который используется для создания
+                    интерактивных веб-сайтов и веб-приложений. Он был разработан компанией
+                    Netscape в 1995 году и стал одним из основных инструментов для разработки
+                    веб-контента.
+                </p>
+                <p class="tech-text">
+                    JS используется для добавления интерактивности на веб-страницы, таких как
+                    анимации, всплывающие окна, валидация форм и многое другое.
+                </p>
+            </div>
+
+            <div class="tech-description-content" data-tab="vue">
+                <h1 class="tech-title">Vue.js</h1>
+                <p class="tech-text">
+                    Прогрессивный фреймворк для создания пользовательских интерфейсов. Он позволяет быстро создавать интерактивные веб-приложения с использованием компонентов и директив.
+                    Фреймворк Vue.js был создан Эваном Ю (Evan You) и его командой в 2014 году
+                </p>
+                <p class="tech-text">
+                    Vue.js имеет ряд преимуществ перед другими фреймворками, такими как Angular и React. Во-первых, Vue.
+                </p>
+            </div>
+
+            <div class="tech-description-content" data-tab="docker">
+                <h1 class="tech-title">Docker</h1>
+                <p class="tech-text">
+                    Платформа для автоматизации развертывания, тестирования и доставки приложений в контейнерах. Она позволяет создавать и запускать приложения в изолированной среде, которая не зависит от операционной системы хоста.
+                </p>
+                <p class="tech-text">
+                    Docker был создан компанией Docker, Inc. в 2013 году.
+                </p>
+                <p class="tech-text">
+                    Docker используется для упрощения процесса разработки, тестирования и развертывания приложений.
+                </p>
+            </div>
+
+            <div class="tech-description-content" data-tab="bitrix">
+                <h1 class="tech-title">Bitrix</h1>
+                <p class="tech-text">
+                    Куда же мы без Битрикс? На фоне импортозамещения в России, эта платформа обретает все большую популярность, а значит мы не можем обойти ее стороной.
+                </p>
+                <p class="tech-text">
+                    Bitrix позволяет создавать сайты различных типов, включая корпоративные, информационные, интернет-магазины и другие.
+                </p>
+                <p class="tech-text">
+                    Система имеет широкий функционал, включая управление контентом, SEO, маркетинг, e-commerce и многое другое. Bitrix является одной из самых популярных CMS в России и странах СНГ.
+                </p>
+            </div>
+
+            <div class="tech-description-content" data-tab="winter">
+                <h1 class="tech-title">Winter</h1>
+                <p class="tech-text">
+                    На данный момент большинство новых сайтов для клиентов мы предлагаем на CMS Winter.
+                </p>
+                <p class="tech-text">
+                    Winter - это мощная и гибкая система управления контентом (CMS).  Он построен с использованием фреймворка Laravel PHP и имеет современный, удобный интерфейс. Winter поддерживает широкий спектр функций, включая управление пользователями, создание контента и SEO-оптимизацию. Winter также легко настраивается, так что вы можете адаптировать его в соответствии с вашими конкретными потребностями.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="qa-section">
+    <h1 class="section-header">Задавай умные вопросы <br>Получай умные ответы</h1>
+    <div class="accordion">
+
+        <div class="accordion-item">
+            <div class="accordion-header">
+                <h3 class="accordion-title">Что в вашей компании необычного?</h3>
+                <button class="accordion-toggle"></button>
+            </div>
+            <div class="accordion-content">
+                <div class="accordion-content-inner">
+                    <p>У нас есть свои маскоты. Крутые талисманы для каждого направления работы: сова CRIMP у аналитиков, кот BUG у разработчиков и ворон WIZARD - эксперт в IT-консалтинге.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="accordion-item">
+            <div class="accordion-header">
+                <h3 class="accordion-title">Как вы относитесь к удаленной работе?</h3>
+                <button class="accordion-toggle"></button>
+            </div>
+            <div class="accordion-content">
+                <div class="accordion-content-inner">
+                    <p>У нас есть 5 офисов: в Магнитогорске, Челябинске и Санкт-Петербурге. Те сотрудники, что работают в этих городах, располагаются в уютных офисах. Однако, у нас есть коллеги, работающие на удаленке в других городах, например, в Хабаровске. Мы находим подходящий график работы для всех.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="accordion-item">
+            <div class="accordion-header">
+                <h3 class="accordion-title">У меня есть друзья/родственники/знакомые, которым требуются услуги IT-компании. Я получу что-то за рекомендацию?</h3>
+                <button class="accordion-toggle"></button>
+            </div>
+            <div class="accordion-content">
+                <div class="accordion-content-inner">
+                    <p>А как же! Если это аутсорсинг, то тебе достанется оплата этой компании за первый месяц. Если это WEB-проект, то ты получишь процент. Так что приводи всех!</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="accordion-item">
+            <div class="accordion-header">
+                <h3 class="accordion-title">Какие стратегические планы у вашей компании?</h3>
+                <button class="accordion-toggle"></button>
+            </div>
+            <div class="accordion-content">
+                <div class="accordion-content-inner">
+                    <p>Пробивные и далеко идущие! Да, мы делаем сайты, но наибольший интерес представляет разработка ITO. Мы делаем ERP и MES-системы, ПО для транспорта и логистики. Мы разрабатываем свой коробочный продукт, который и планируем продвигать в будущем!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ai-section">
+
+    <p class="section-subheader">Иногда мы работаем с ИИ <br>Вот как он нас <b>представляет</b></p>
+
+    <div class="ai-slider">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="Media/cat1.svg" alt="ИИ изображение 1">
+                    <img src="Media/cat2.svg" alt="ИИ изображение 2">
+                </div>
+                <div class="swiper-slide">
+                    <img src="Media/cat3.png" alt="ИИ изображение 3">
+                    <img src="Media/cat4.png" alt="ИИ изображение 4">
+                </div>
+                <div class="swiper-slide">
+                    <img src="Media/cat8.png" alt="ИИ изображение 8">
+                    <img src="Media/cat5.png" alt="ИИ изображение 5">
+                </div>
+                <div class="swiper-slide">
+                    <img src="Media/cat6.png" alt="ИИ изображение 6">
+                    <img src="Media/cat7.png" alt="ИИ изображение 7">
+                </div>
+            </div>
+        </div>
+        <div class="custom-pagination">
+            <button class="custom-pagination-btn active" data-index="0"></button>
+            <button class="custom-pagination-btn" data-index="1"></button>
+            <button class="custom-pagination-btn" data-index="2"></button>
+            <button class="custom-pagination-btn" data-index="3"></button>
+        </div>
+    </div>
+</section>
+
+<section class="contacts-section">
+    <h2 class="section-header">Контакты</h2>
+
+    <div class="contacts-container">
+        <div class="map-container" id="map"><script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Add0b75a699d3f7e25baaae7e26e0ed35b34956503a5210ca6b60ff4d9ff52984&amp;width=1135&amp;height=654&amp;lang=ru_RU&amp;scroll=true"></script></div>
+        <div class="contacts-container">
+            <div class="contacts-list">
+
+                <div class="contact-item">
+                <h1>Адрес: </h1>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><img src="Media/geo.png" alt="Адрес"></div>
+                    <div class="contact-text">
+                        г. Челябинск
+                        ул. Довятова, 9 оф.27
+                    </div>
+
+                </div>
+                <div class="contact-item">
+                <div class="contact-icon"><img src="Media/tel.png" alt="Телефон"></div>
+                <div class="contact-text contact-phone">
+                    <b>8 (351) 225 62 41</b>
+                </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon"><img src="Media/geo.png" alt="Адрес"></div>
+                    <div class="contact-text">
+                        г. Магнитогорск
+                        ул. Строителей, 26
+                    </div>
+
+                </div>
+                <div class="contact-item">
+                <div class="contact-icon"><img src="Media/tel.png" alt="Телефон"></div>
+                <div class="contact-text contact-phone">
+                    <b>8 (3519) 335-123</b>
+                </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon"><img src="Media/geo.png" alt="Адрес"></div>
+                    <div class="contact-text">
+                        Санкт-Петербург
+                    </div>
+                </div>
+                <div class="contact-item">
+                <div class="contact-icon"><img src="Media/tel.png" alt="Телефон"></div>
+                <div class="contact-text contact-phone">
+                    <b>+7 812 507-98-17</b>
+                </div>
+                </div>
+            </div>
+    </div>
+    </div>
+</section>
+
+<div class="cooperation-form">
+    <h1 class="form-header">ОБСУДИМ СОТРУДНИЧЕСТВО</h1>
+    <p class="form-description">
+        Узнать больше подробностей вы можете у наших специалистов,<br>
+        заказав консультацию.
+    </p>
+
+    <form id="cooperationForm">
+
+        <div class="form-layout">
+            <div class="left-column">
+
+                <div class="form-group">
+                    <label class="form-label">Ваше имя</label>
+                    <input type="text" class="form-input required" id="userName" placeholder="Введите ваше имя">
+                    <div class="error-message" id="nameError">Пожалуйста, введите ваше имя</div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="form-label">Номер телефона</label>
+                    <input type="tel" class="form-input" id="userPhone" placeholder="+7 -  - *">
+                </div>
+
+
+                <div class="form-group">
+                    <label class="form-label">E-mail</label>
+                    <input type="email" class="form-input" id="userEmail" placeholder="Введите ваш email">
+                    <div class="error-message" id="emailError">Пожалуйста, введите корректный email</div>
+                </div>
+            </div>
+
+
+            <div class="right-column">
+                <div class="form-group">
+                    <label class="form-label">Комментарий</label>
+                    <textarea class="form-input" id="userComment" placeholder="Введите ваш комментарий" rows="8"></textarea>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="consent-group">
+            <input type="checkbox" class="consent-checkbox" id="userConsent" checked>
+            <label for="userConsent" class="consent-text">
+                Пользуясь сайтом или отправляя любые формы запросов, Вы соглашаетесь
+                с условиями «Политики конфиденциальности и обработки персональных данных»
+            </label>
+        </div>
+
+
+        <div class="submit-container">
+            <button type="submit" class="submit-btn" id="submitBtn" disabled>Отправить</button>
+        </div>
+    </form>
+</div>
+
+<footer class="footer">
+    <div class="nav">
+        <p>Знакомство</p>
+        <p>Максимум</p>
+        <p>Вопрос/Ответ</p>
+        <p>Контакты</p>
+    </div>
+<br>
+    <div class="footer-feedback">
+        <p>
+            <img src="Media/mapLabel.svg" alt="Адрес">
+            г. Челябинск, <br> ул. Доватора, 9 оф.27
+        </p>
+        <p>
+            <img src="Media/mapLabel.svg" alt="Адрес">
+            г. Магнитогорск, <br> ул. Ворошилова, 37б
+        </p>
+        <p>
+            <img src="Media/mapLabel.svg" alt="Адрес">
+            Санкт-Петербург, <br> Бумажная, 16к1 оф 432
+        </p>
+    </div>
+<br>
+    <div class="NUmbErs">
+        <p>
+            <img src="Media/Telephone.svg" alt="Телефон">
+            <b>8 (351) 225 62 41</b>
+        </p>
+        <p>
+            <img src="Media/Telephone.svg" alt="Телефон">
+            <b>8 (3519) 393-123</b>
+        </p>
+        <p>
+            <img src="Media/Telephone.svg" alt="Телефон">
+            <b>+7 812 507-98-17</b>
+        </p>
+    </div>
+
+    <div class="last">
+        <div class="social-icons">
+            <img src="Media/vk.svg" alt="VK">
+            <img src="Media/youtube.svg" alt="YouTube">
+            <img src="Media/telegram.svg" alt="Telegram">
+        </div>
+        <p><u>Политика конфиденциальности</u></p>
+        <p>ООО "ANALYTICUMPLUS" © 2022</p>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+<script src="css/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Инициализация Fancybox с кастомными настройками
+        Fancybox.bind("[data-fancybox]", {
+            closeButton: false, // Отключаем стандартный крестик
+            Thumbs: false,
+            Toolbar: false,
+            fullScreen: true,
+            on: {
+                init: (fancybox) => {
+                    // Убираем скругления у контейнера
+                    const container = document.querySelector('.fancybox__container');
+                    if (container) {
+                        container.style.borderRadius = "0";
+                    }
+
+                    // Убираем скругления у контента
+                    const content = document.querySelector('.fancybox__content');
+                    if (content) {
+                        content.style.borderRadius = "0";
+                        content.style.padding = "0";
+                        content.style.margin = "0";
+                    }
+                }
+            }
+        });
+
+        // Обработчики для кнопок консультации
+        document.querySelectorAll('.header-button, .header-button-burger').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                Fancybox.show([{
+                    src: "#consultation-modal",
+                    type: "inline",
+                    fullScreen: true
+                }]);
+            });
+        });
+
+        // Обработка формы
+        document.getElementById('consultation-form')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            Fancybox.close();
+            setTimeout(() => {
+                Fancybox.show([{
+                    src: "#success-modal",
+                    type: "inline",
+                    fullScreen: true
+                }]);
+            }, 300);
+        });
+
+        // Обработчики для кастомных крестиков закрытия
+        document.querySelectorAll('.modal-close-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                Fancybox.close();
+            });
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+@media only screen
+and (min-device-width: 428px)
+and (max-device-width: 926px)
+and (-webkit-min-device-pixel-ratio: 3) {
+
+    body {
+        font-size: 15px;
+        line-height: 1.4;
+    }
+
+
+    .header-site {
+        width: 100%;
+        height: 65px;
+        padding: 0 18px;
+    }
+
+    .form-input {
+        width: 86%;
+    }
+
+    .logo img {
+        height: 32px;
+    }
+
+    .main-menu1 {
+        display: none;
+    }
+
+    .header-contacts {
+        display: none;
+    }
+
+    .burger-menu {
+        display: block;
+        position: absolute;
+        right: 18px;
+        top: 18px;
+        font-size: 26px;
+        background: none;
+        border: none;
+        color: #211041;
+    }
+
+
+    .main-menu {
+        display: ruby;
+        left: -470px;
+        width: 430px;
+    }
+
+
+    .main-menu.active {
+        left: 0;
+    }
+
+    .main-menu ul {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .main-menu li {
+        padding: 16px 0;
+        border-bottom: 1px solid #D1C6DD;
+        font-size: 16px;
+    }
+
+    .header-contacts-burger {
+        margin-top: 28px;
+    }
+
+    .header-button-burger {
+        width: 100%;
+        padding: 14px;
+    }
+
+
+    .welcome-block {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .welcome-text {
+        width: 100%;
+        order: 1;
+    }
+
+    .welcome-image {
+        width: 85%;
+        order: 2;
+    }
+
+    .welcome-title {
+        font-size: 38px;
+        margin-bottom: 18px;
+    }
+
+
+    .company-section {
+        padding: 50px 18px;
+    }
+
+    .company-header {
+        font-size: 38px;
+        margin-bottom: 28px;
+    }
+
+    .company-image {
+        position: static;
+        transform: none;
+        width: 85%;
+        margin: 28px auto 0;
+        display: block;
+    }
+
+
+    .maximum-section {
+        padding: 50px 18px;
+    }
+
+    .section-header {
+        font-size: 38px;
+        margin-bottom: 35px;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .benefit-card {
+        width: 90%;
+        padding: 22px;
+        height: auto;
+    }
+
+
+    .tech-section {
+        padding: 50px 18px;
+    }
+
+    .tech-tabs {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .tech-tab {
+        font-size: 15px;
+        padding: 8px 14px;
+    }
+
+
+    .contacts-section {
+        padding: 50px 18px;
+    }
+
+    .map-container {
+        width: 100%;
+        height: 320px;
+    }
+
+
+    .cooperation-form {
+        padding: 50px 18px;
+    }
+
+    .form-header {
+        font-size: 34px;
+    }
+
+
+    .footer {
+        padding: 35px 18px;
+    }
+
+
+    .swiper-slide {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .swiper-slide img {
+        width: 85%;
+        max-width: 380px;
+    }
+
+
+    .tech-content {
+        flex-direction: column;
+    }
+
+    .tech-slider,
+    .tech-description {
+        width: 100%;
+    }
+
+    .contacts-container {
+        flex-direction: column;
+    }
+
+    .form-layout {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .submit-btn {
+        width: 100%;
+        padding: 16px;
+    }
+}
