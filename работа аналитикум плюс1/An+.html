@@ -677,21 +677,18 @@
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Инициализация Fancybox с кастомными настройками
         Fancybox.bind("[data-fancybox]", {
-            closeButton: false, // Отключаем стандартный крестик
+            closeButton: false, 
             Thumbs: false,
             Toolbar: false,
             fullScreen: true,
             on: {
                 init: (fancybox) => {
-                    // Убираем скругления у контейнера
                     const container = document.querySelector('.fancybox__container');
                     if (container) {
                         container.style.borderRadius = "0";
                     }
 
-                    // Убираем скругления у контента
                     const content = document.querySelector('.fancybox__content');
                     if (content) {
                         content.style.borderRadius = "0";
@@ -702,7 +699,6 @@
             }
         });
 
-        // Обработчики для кнопок консультации
         document.querySelectorAll('.header-button, .header-button-burger').forEach(button => {
             button.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -714,7 +710,6 @@
             });
         });
 
-        // Обработка формы
         document.getElementById('consultation-form')?.addEventListener('submit', function(e) {
             e.preventDefault();
             Fancybox.close();
@@ -727,7 +722,6 @@
             }, 300);
         });
 
-        // Обработчики для кастомных крестиков закрытия
         document.querySelectorAll('.modal-close-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 Fancybox.close();
